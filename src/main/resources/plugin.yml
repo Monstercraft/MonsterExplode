@@ -1,6 +1,6 @@
 name: DeathExplosion
 main: org.monstercraft.deathexplosion.DeathExplosion
-version: 1.0
+version: '${project.version}'
 author: Fletch_to_99
 description: Players can explode on death!
 softdepend: [Shield]

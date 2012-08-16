@@ -27,7 +27,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>file:///var/lib/jenkins/workspace/MonsterExplode/.repository/</url>
+			<url>file:///var/lib/jenkins/workspace/MonsterExplode/dependencies/</url>
 		</repository>
 	    <repository>
             <id>bukkit-repo</id>

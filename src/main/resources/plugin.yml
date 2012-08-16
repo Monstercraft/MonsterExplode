@@ -1,0 +1,17 @@
+name: DeathExplosion
+main: org.monstercraft.deathexplosion.DeathExplosion
+version: 1.0
+author: Fletch_to_99
+description: Players can explode on death!
+softdepend: [Shield]
+commands:
+  boom:
+    description: View dbo page.
+    usage: View dbo page.
+permissions:
+  monsterexplode.explode:
+    description: Explode on death.
+    default: op
+  monsterexplode.toggle:
+    description: Enable/Disable exploding on death.
+    default: op

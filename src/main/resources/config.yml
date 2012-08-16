@@ -1,0 +1,4 @@
+EXPLODE:
+    CHANCE: 50
+    SIZE: 5
+    PREVENT_BLOCK_DAMAGE: true

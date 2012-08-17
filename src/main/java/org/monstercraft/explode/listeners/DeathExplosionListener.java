@@ -81,12 +81,11 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 		}
 		if (i <= Variables.randomnessFactor) {
 			World world = player.getWorld();
-			world.createExplosion(loc, Variables.size, true);
-			player.sendMessage(ChatColor.RED + "You have exploded!");
 			if (Variables.prevent_block_damage) {
 				locations.add(loc);
-				log(loc.getX() + " " + loc.getY() + " " + loc.getZ());
 			}
+			world.createExplosion(loc, Variables.size, true);
+			player.sendMessage(ChatColor.RED + "You have exploded!");
 		} else {
 
 		}

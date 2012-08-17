@@ -1,5 +1,6 @@
 package org.monstercraft.explode;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.monstercraft.explode.listeners.MonsterExplodeListener;
 import org.monstercraft.explode.managers.CommandManager;
 import org.monstercraft.explode.managers.SettingsManager;
+import org.monstercraft.explode.util.Metrics;
 
 public class MonsterExplode extends JavaPlugin {
 
@@ -22,6 +24,11 @@ public class MonsterExplode extends JavaPlugin {
 		this.commandManager = new CommandManager();
 		listener = new MonsterExplodeListener(this);
 		getServer().getPluginManager().registerEvents(listener, this);
+		try {
+			new Metrics(this).start();
+		} catch (final IOException e) {
+			debug(e);
+		}
 		log("MonsterExplode has been enabled!");
 	}
 

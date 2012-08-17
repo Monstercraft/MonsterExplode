@@ -34,14 +34,16 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onExplode(EntityExplodeEvent event) {
 		if (locations.contains(event.getLocation())
 				&& Variables.prevent_block_damage) {
+			log("Preveted");
 			event.blockList().clear();
 			locations.remove(event.getLocation());
 			return;
 		}
+		log("not prevented");
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)

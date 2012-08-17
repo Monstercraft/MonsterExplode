@@ -6,7 +6,7 @@ public class Variables {
 
 	public static int randomnessFactor = 50;
 
-	public static boolean enabled = false;
+	public static boolean enabled = true;
 
 	public static boolean prevent_block_damage = true;
 

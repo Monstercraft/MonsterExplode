@@ -20,13 +20,13 @@ import org.monstercraft.explode.util.Variables;
 import com.malikk.shield.Shield;
 import com.malikk.shield.ShieldAPI;
 
-public class DeathExplosionListener extends MonsterExplode implements Listener {
+public class MonsterExplodeListener extends MonsterExplode implements Listener {
 
 	private final Random ran = new Random();
 	private ShieldAPI api = null;
 	ArrayList<Location> locations = new ArrayList<Location>();
 
-	public DeathExplosionListener(MonsterExplode plugin) {
+	public MonsterExplodeListener(MonsterExplode plugin) {
 		Plugin x = plugin.getServer().getPluginManager().getPlugin("Shield");
 		if (x != null && x instanceof Shield) {
 			Shield shield = (Shield) x;
@@ -43,10 +43,8 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 						&& location.getY() == loc.getY()
 						&& loc.getZ() == location.getZ()
 						&& loc.getWorld() == location.getWorld()) {
-					log("prevented");
 					event.blockList().clear();
 					locations.remove(location);
-					log(locations.size() + "");
 					return;
 				}
 			}
@@ -65,7 +63,7 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 		if (!player.hasPermission("monsterexplode.explode")) {
 			return;
 		}
-		if (Variables.enabled) {
+		if (!Variables.enabled) {
 			player.sendMessage(ChatColor.RED
 					+ "Exploding on death is currently disabled.");
 			return;

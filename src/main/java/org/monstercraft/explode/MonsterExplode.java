@@ -6,13 +6,13 @@ import java.util.logging.Logger;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.monstercraft.explode.listeners.DeathExplosionListener;
+import org.monstercraft.explode.listeners.MonsterExplodeListener;
 import org.monstercraft.explode.managers.CommandManager;
 import org.monstercraft.explode.managers.SettingsManager;
 
 public class MonsterExplode extends JavaPlugin {
 
-	private DeathExplosionListener listener;
+	private MonsterExplodeListener listener;
 	private static Logger logger = Logger.getLogger("Minecraft");
 	private CommandManager commandManager;
 	private static SettingsManager settings;
@@ -20,7 +20,7 @@ public class MonsterExplode extends JavaPlugin {
 	public void onEnable() {
 		settings = new SettingsManager(this);
 		this.commandManager = new CommandManager();
-		listener = new DeathExplosionListener(this);
+		listener = new MonsterExplodeListener(this);
 		getServer().getPluginManager().registerEvents(listener, this);
 		log("MonsterExplode has been enabled!");
 	}
@@ -51,8 +51,7 @@ public class MonsterExplode extends JavaPlugin {
 	 *            The message to print.
 	 */
 	protected static void debug(Exception error) {
-		logger.log(Level.WARNING,
-				"[MonsterExplode - Critical error detected!]");
+		logger.log(Level.WARNING, "[MonsterExplode - Critical error detected!]");
 		error.printStackTrace();
 	}
 

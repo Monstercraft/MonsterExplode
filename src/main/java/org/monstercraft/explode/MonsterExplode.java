@@ -41,7 +41,7 @@ public class MonsterExplode extends JavaPlugin {
 	 *            The message to print.
 	 */
 	public static void log(String msg) {
-		logger.log(Level.INFO, "[Death Explosions] " + msg);
+		logger.log(Level.INFO, "[MonsterExplode] " + msg);
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class MonsterExplode extends JavaPlugin {
 	 */
 	protected static void debug(Exception error) {
 		logger.log(Level.WARNING,
-				"[Death Explosions - Critical error detected!]");
+				"[MonsterExplode - Critical error detected!]");
 		error.printStackTrace();
 	}
 

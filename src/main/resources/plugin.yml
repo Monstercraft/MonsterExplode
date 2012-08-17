@@ -1,4 +1,4 @@
-name: DeathExplosion
+name: MonsterExplode
 main: org.monstercraft.explode.MonsterExplode
 version: '${project.version}'
 author: Fletch_to_99

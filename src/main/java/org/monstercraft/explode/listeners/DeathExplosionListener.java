@@ -61,10 +61,12 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 					+ "Exploding on death is currently disabled.");
 			return;
 		}
-		if (api.isInRegion(loc)) {
-			player.sendMessage(ChatColor.RED
-					+ "You could not explode withn the protection region!");
-			return;
+		if (api != null) {
+			if (api.isInRegion(loc)) {
+				player.sendMessage(ChatColor.RED
+						+ "You could not explode withn the protection region!");
+				return;
+			}
 		}
 		if (i <= Variables.randomnessFactor) {
 			World world = player.getWorld();

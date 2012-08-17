@@ -1,5 +1,5 @@
 name: DeathExplosion
-main: org.monstercraft.deathexplosion.DeathExplosion
+main: org.monstercraft.explode.MonsterExplode
 version: '${project.version}'
 author: Fletch_to_99
 description: Players can explode on death!

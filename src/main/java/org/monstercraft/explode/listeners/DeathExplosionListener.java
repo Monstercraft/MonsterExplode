@@ -37,21 +37,19 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onExplode(EntityExplodeEvent event) {
 		Location loc = event.getLocation();
-		log(loc.getX() + " " + loc.getY() + " " + loc.getZ());
-		log(String.valueOf(Variables.prevent_block_damage));
-		log(locations.size() + "");
-		for (Location loca : locations) {
-			log("Contains: " + loca.getX() + " " + loca.getY() + " "
-					+ loca.getZ());
-		}
-		if (locations.contains(loc)) {
-			log("Should prevent");
-		}
-		if (locations.contains(loc) && Variables.prevent_block_damage) {
-			log("prevented");
-			event.blockList().clear();
-			locations.remove(event.getLocation());
-			return;
+		if (Variables.prevent_block_damage) {
+			for (Location location : locations) {
+				if (location.getX() == loc.getX()
+						&& location.getY() == loc.getY()
+						&& loc.getZ() == location.getZ()
+						&& loc.getWorld() == location.getWorld()) {
+					log("prevented");
+					event.blockList().clear();
+					locations.remove(location);
+					log(locations.size() + "");
+					return;
+				}
+			}
 		}
 	}
 

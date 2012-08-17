@@ -27,7 +27,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>file:///var/lib/jenkins/workspace/MonsterExplode/dependencies/</url>
+			<url>file:///var/lib/jenkins/workspace/MonsterExplode/.repository/</url>
 		</repository>
 	    <repository>
             <id>bukkit-repo</id>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>com.malikk.shield</groupId>
 			<artifactId>Shield</artifactId>
-			<version>1.2.12-SNAPSHOT</version>
+			<version>1.0</version>
 		</dependency>
 	    <dependency>
 	      <groupId>org.bukkit</groupId>

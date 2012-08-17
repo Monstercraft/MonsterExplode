@@ -36,14 +36,15 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
 	public void onExplode(EntityExplodeEvent event) {
+		Location loc = event.getLocation();
+		log(loc.getX() + " " + loc.getY() + " " + loc.getZ());
+		log(String.valueOf(Variables.prevent_block_damage));
 		if (locations.contains(event.getLocation())
 				&& Variables.prevent_block_damage) {
-			log("Preveted");
 			event.blockList().clear();
 			locations.remove(event.getLocation());
 			return;
 		}
-		log("not prevented");
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -72,10 +73,11 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 		}
 		if (i <= Variables.randomnessFactor) {
 			World world = player.getWorld();
-			world.createExplosion(loc, Variables.size);
+			world.createExplosion(loc, Variables.size, true);
 			player.sendMessage(ChatColor.RED + "You have exploded!");
 			if (Variables.prevent_block_damage) {
 				locations.add(loc);
+				log(loc.getX() + " " + loc.getY() + " " + loc.getZ());
 			}
 		} else {
 

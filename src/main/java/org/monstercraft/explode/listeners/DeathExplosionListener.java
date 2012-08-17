@@ -39,8 +39,16 @@ public class DeathExplosionListener extends MonsterExplode implements Listener {
 		Location loc = event.getLocation();
 		log(loc.getX() + " " + loc.getY() + " " + loc.getZ());
 		log(String.valueOf(Variables.prevent_block_damage));
-		if (locations.contains(event.getLocation())
-				&& Variables.prevent_block_damage) {
+		log(locations.size() + "");
+		for (Location loca : locations) {
+			log("Contains: " + loca.getX() + " " + loca.getY() + " "
+					+ loca.getZ());
+		}
+		if (locations.contains(loc)) {
+			log("Should prevent");
+		}
+		if (locations.contains(loc) && Variables.prevent_block_damage) {
+			log("prevented");
 			event.blockList().clear();
 			locations.remove(event.getLocation());
 			return;

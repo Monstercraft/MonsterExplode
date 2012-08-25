@@ -63,12 +63,15 @@ public class MonsterExplodeListener extends MonsterExplode implements Listener {
 		if (!player.hasPermission("monsterexplode.explode")) {
 			return;
 		}
+		if (loc == null) {
+			return;
+		}
 		if (!Variables.enabled) {
 			player.sendMessage(ChatColor.RED
 					+ "Exploding on death is currently disabled.");
 			return;
 		}
-		if (api != null) {
+		if (api != null && loc != null) {
 			if (api.isInRegion(loc)) {
 				player.sendMessage(ChatColor.RED
 						+ "You could not explode withn the protection region!");
@@ -82,8 +85,6 @@ public class MonsterExplodeListener extends MonsterExplode implements Listener {
 			}
 			world.createExplosion(loc, Variables.size, true);
 			player.sendMessage(ChatColor.RED + "You have exploded!");
-		} else {
-
 		}
 	}
 }

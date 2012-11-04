@@ -8,7 +8,7 @@ public class Toggle extends GameCommand {
 
 	@Override
 	public boolean canExecute(CommandSender sender, String[] split) {
-		return sender.isOp() && split[1].equalsIgnoreCase("toggle");
+		return split[1].equalsIgnoreCase("toggle");
 	}
 
 	@Override

@@ -2,12 +2,12 @@ package org.monstercraft.explode.util;
 
 public class Variables {
 
-	public static int size = 15;
+    public static int size = 15;
 
-	public static int randomnessFactor = 50;
+    public static int randomnessFactor = 50;
 
-	public static boolean enabled = true;
+    public static boolean enabled = true;
 
-	public static boolean prevent_block_damage = true;
+    public static boolean prevent_block_damage = true;
 
 }
